@@ -1,0 +1,328 @@
+#     ___  ________  ________  ________  ________   ________ ___  ________     
+#    |\  \|\_____  \|\   ____\|\   __  \|\   ___  \|\  _____\\  \|\   ____\    
+#    \ \  \|____|\ /\ \  \___|\ \  \|\  \ \  \\ \  \ \  \__/\ \  \ \  \___|    
+#     \ \  \    \|\  \ \  \    \ \  \\\  \ \  \\ \  \ \   __\\ \  \ \  \  ___  
+#      \ \  \  __\_\  \ \  \____\ \  \\\  \ \  \\ \  \ \  \_| \ \  \ \  \|\  \ 
+#       \ \__\|\_______\ \_______\ \_______\ \__\\ \__\ \__\   \ \__\ \_______\
+#        \|__|\|_______|\|_______|\|_______|\|__| \|__|\|__|    \|__|\|_______|
+
+#						       Updated 10/05/2021
+
+# ┌┐ ┌─┐┌─┐┬┌─┐
+# ├┴┐├─┤└─┐││
+# └─┘┴ ┴└─┘┴└─┘
+
+# Define $mod key
+set $mod Mod4
+
+# Terminal
+bindsym $mod+Return exec --no-startup-id termite;focus
+
+# FONT
+font pango:Noto Mono Regular 10
+
+# WALLPAPER
+exec_always feh --bg-fill ~/Pictures/a54.jpg
+
+# Transparency
+exec --no-startup-id picom -b &
+#exec compton
+
+# Fullscreen
+bindsym $mod+shift+f              fullscreen toggle
+
+# global fullscreen: across all monitors
+bindsym $mod+shift+l             fullscreen toggle global
+
+# ╦ ╦┬┌┐┌┌┬┐┌─┐┬ ┬┌─┐  ┌┬┐┌─┐┌─┐┌─┐┬─┐┌─┐┌┬┐┬┌─┐┌┐┌  ┌─┐┌─┐┬  ┌─┐┬─┐┌─┐
+# ║║║││││ │││ ││││└─┐   ││├┤ │  │ │├┬┘├─┤ │ ││ ││││  │  │ ││  │ │├┬┘└─┐
+# ╚╩╝┴┘└┘─┴┘└─┘└┴┘└─┘  ─┴┘└─┘└─┘└─┘┴└─┴ ┴ ┴ ┴└─┘┘└┘  └─┘└─┘┴─┘└─┘┴└─└─┘
+
+# class                 border  backgr. text    indicator
+client.placeholder      #242424 #242424 #242424 #666666
+client.background       #242424 #242424 #242424
+client.focused          #3F7ABE #4A4A4A #CF2332 #666666 #1DA147
+client.unfocused        #1164A7 #222222 #A22330 #1164A7 #EE2D55
+client.focused_inactive #222222 #222222 #a9a9a9 #666666 #D261EB
+client.urgent           #d42121 #d42121 #f7f7f7 #666666
+
+# ┬┌─┌─┐┬ ┬┌┐ ┌─┐┌─┐┬─┐┌┬┐  ┌─┐┬ ┬┌─┐┬─┐┌┬┐┌─┐┬ ┬┌┬┐┌─┐
+# ├┴┐├┤ └┬┘├┴┐│ │├─┤├┬┘ ││  └─┐├─┤│ │├┬┘ │ │  │ │ │ └─┐
+# ┴ ┴└─┘ ┴ └─┘└─┘┴ ┴┴└──┴┘  └─┘┴ ┴└─┘┴└─ ┴ └─┘└─┘ ┴ └─┘
+
+bindsym Control+Shift+t exec --no-startup-id termite
+#bindsym $Mod+g          exec --no-startup-id chromium
+bindsym $Mod+g          exec --no-startup-id google-chrome-stable
+#tchbindsym $Mod+s          exec --no-startup-id steam
+bindsym $Mod+t          exec --no-startup-id subl
+bindsym $Mod+w          exec --no-startup-id firefox
+bindsym $Mod+f          exec --no-startup-id thunar
+bindsym $Mod+a          exec --no-startup-id xfce4-appfinder
+bindsym $Mod+k          exec --no-startup-id gcolor2
+bindsym $Mod+x          exec --no-startup-id xfce4-terminal
+
+
+# Reload
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+
+# Lock
+bindsym $Mod+l          exec --no-startup-id i3lock-fancy -p
+#bindsym $Mod+l          exec --no-startup-id i3lock
+#bindsym $Mod+l          exec --no-startup-id i3lock-next
+#bindsym $Mod+l          exec --no-startup-id i3lock-blur
+
+
+# kill focused window
+bindsym $mod+Shift+q kill
+bindsym $mod+q kill
+
+# start dmenu
+bindsym $mod+d exec --no-startup-id dmenu_run -i -nb '#053364' -nf '#5ef4fd' -sb '#0aecce' -sf '#053364' -fn 'NotoMonoRegular:bold:pixelsize=22'
+
+#exit
+bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# ┌─┐┌┬┐┌─┐┬─┐┌┬┐┬ ┬┌─┐
+# └─┐ │ ├─┤├┬┘ │ │ │├─┘
+# └─┘ ┴ ┴ ┴┴└─ ┴ └─┘┴
+
+# Monitors
+#exec --no-startup-id xrandr --output DisplayPort-1 --left-of DisplayPort-0 --auto
+
+#updates
+exec --no-startup-id pamac-tray
+
+# conky
+#exec --no-startup-id conky &
+
+# Authentication dialog
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+# bluetooth
+exec --no-startup-id blueberry-tray
+
+# network
+exec --no-startup-id nm-applet
+
+# num lock activated
+exec_always --no-startup-id numlockx on
+
+# volume
+#exec --no-startup-id pasystray
+exec --no-startup-id volumeicon
+
+# Polybar
+exec --no-startup-id bash ~/.config/polybar/launch.sh
+
+# system applications
+exec --no-startup-id xfce4-power-manager &
+
+#notifications 
+exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
+
+# pavucontrol
+bindsym control+mod1+u exec --no-startup-id pavucontrol
+
+# xkill
+bindsym --release $mod+Escape exec xkill
+
+# ┌─┐┌─┐┌─┐┌─┐
+# │ ┬├─┤├─┘└─┐
+# └─┘┴ ┴┴  └─┘
+
+for_window [class="^.*"] border pixel 1
+gaps inner 10
+gaps outer 30
+#smart_gaps on
+#smart_borders on
+
+# rounded corners
+border_radius 1
+
+# i3 gaps change
+new_window normal
+new_float  normal
+
+hide_edge_borders both
+
+bindsym $Mod+shift+b border toggle
+
+# changing border style
+bindsym $Mod+n border normal
+bindsym $Mod+y border 1pixel
+bindsym $Mod+u border none
+
+# change gaps
+bindsym $Mod+plus                gaps inner current plus  5
+bindsym $Mod+minus               gaps inner current minus 5
+bindsym $Mod+Shift+plus          gaps outer current plus  5
+bindsym $Mod+Shift+minus         gaps outer current minus 5
+bindsym $Mod+Control+plus        gaps inner all     plus  5
+bindsym $Mod+Control+minus       gaps inner all     minus 5
+bindsym $Mod+Control+Shift+plus  gaps outer all     plus  5
+bindsym $Mod+Control+Shift+minus gaps outer all     minus 5
+
+# ┬ ┬┌─┐┬─┐┬┌─┌─┐┌─┐┌─┐┌─┐┌─┐┌─┐  ┌─┐┌┐┌┌┬┐  ┌─┐┌─┐┌┐┌┌┬┐┌─┐┬┌┐┌┌─┐┬─┐┌─┐
+# ││││ │├┬┘├┴┐└─┐├─┘├─┤│  ├┤ └─┐  ├─┤│││ ││  │  │ ││││ │ ├─┤││││├┤ ├┬┘└─┐
+# └┴┘└─┘┴└─┴ ┴└─┘┴  ┴ ┴└─┘└─┘└─┘  ┴ ┴┘└┘─┴┘  └─┘└─┘┘└┘ ┴ ┴ ┴┴┘└┘└─┘┴└─└─┘
+
+# switch to workspace with random wallpaper
+#bindsym $mod+1 workspace 1; exec --no-startup-id feh --randomize --bg-max ~/Pictures/a9.jpg
+#bindsym $mod+2 workspace 2; exec --no-startup-id feh --randomize --bg-max ~/Pictures/b104.jpg
+#bindsym $mod+3 workspace 3; exec --no-startup-id feh --randomize --bg-max ~/Pictures/b95.jpg
+#bindsym $mod+4 workspace 4; exec --no-startup-id feh --randomize --bg-max ~/Pictures/b7.png
+#bindsym $mod+5 workspace 5; exec --no-startup-id feh --randomize --bg-max ~/Pictures/b9.png
+#bindsym $mod+6 workspace 6
+#bindsym $mod+7 workspace 7
+#bindsym $mod+8 workspace 8
+#bindsym $mod+9 workspace 9
+#bindsym $mod+0 workspace 10
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1; workspace 1
+bindsym $mod+Shift+2 move container to workspace 2; workspace 2
+bindsym $mod+Shift+3 move container to workspace 3; workspace 3
+bindsym $mod+Shift+4 move container to workspace 4; workspace 4
+bindsym $mod+Shift+5 move container to workspace 5; workspace 5
+bindsym $mod+Shift+6 move container to workspace 6; workspace 6
+bindsym $mod+Shift+7 move container to workspace 7; workspace 7
+bindsym $mod+Shift+8 move container to workspace 8; workspace 8
+bindsym $mod+Shift+9 move container to workspace 9; workspace 9
+bindsym $mod+Shift+0 move container to workspace 10; workspace 10
+
+# change focus
+bindsym $Mod+$left  focus left
+bindsym $Mod+$down  focus down
+bindsym $Mod+$up    focus up
+bindsym $Mod+$right focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $Mod+Left  focus left
+bindsym $Mod+Down  focus down
+bindsym $Mod+Up    focus up
+bindsym $Mod+Right focus right
+
+# move focused window
+bindsym $Mod+Shift+$left  move left  30px
+bindsym $Mod+Shift+$down  move down  30px
+bindsym $Mod+Shift+$up    move up    30px
+bindsym $Mod+Shift+$right move right 30px
+
+# alternatively, you can use the cursor keys:
+bindsym $Mod+Shift+Up    move up    30px
+bindsym $Mod+Shift+Down  move down  30px
+bindsym $Mod+Shift+Left  move left  30px
+bindsym $Mod+Shift+Right move right 30px
+
+# Size
+bindsym Mod1+Up    resize shrink height 10 px or 1 ppt
+bindsym Mod1+Down  resize grow   height 10 px or 1 ppt
+bindsym Mod1+Left  resize shrink width  10 px or 1 ppt
+bindsym Mod1+Right resize grow   width  10 px or 1 ppt
+
+# switch to workspace with urgent window
+for_window [urgent="latest"] focus
+focus_on_window_activation   focus
+
+# container layout
+bindsym $Mod+h split h
+
+bindsym $Mod+v split v
+bindsym $Mod+Shift+t layout tabbed
+bindsym $Mod+Shift+s layout stacking
+bindsym $Mod+Shift+h layout toggle split
+
+default_orientation horizontal
+
+# Scratchpad, Floating
+bindsym $Mod+space floating toggle
+floating_modifier  Mod1
+
+#moving around workspaces
+
+# next/previous workspace
+
+bindsym Mod1+Tab workspace next
+bindsym Mod1+Shift+Tab workspace prev
+bindsym $mod+Tab workspace back_and_forth
+
+#navigate workspaces next / previous
+bindsym Mod1+Ctrl+Right workspace next
+bindsym Mod1+Ctrl+Left workspace prev
+
+# switch to workspace with urgent window automatically
+for_window [urgent=latest] focus
+
+# ┌┬┐┬ ┬┌─┐┬    ┌┬┐┌─┐┌┐┌┬┌┬┐┌─┐┬─┐
+#  │││ │├─┤│    ││││ │││││ │ │ │├┬┘
+# ─┴┘└─┘┴ ┴┴─┘  ┴ ┴└─┘┘└┘┴ ┴ └─┘┴└─
+# 
+
+# setting variables for later use
+# use xrandr and/or arandr to know the names of your monitors
+# use this line to tell which monitor is on the right
+# xrandr --output DVI-I-2 --right-of DVI-I-1 --auto
+#exec --no-startup-id xrandr --output LVDS1 --mode 1366x768 --output DP3 --mode 1920x1080 --right-of LVDS1
+#exec --no-startup-id xrandr --output DVI-I-0 --right-of HDMI-0 --auto
+#exec --no-startup-id xrandr --output DVI-1 --right-of DVI-0 --auto
+#exec --no-startup-id xrandr --output DVI-D-1 --right-of DVI-I-1 --auto
+#exec --no-startup-id xrandr --output HDMI-2 --right-of HDMI-1 --auto
+#exec --no-startup-id xrandr --output DisplayPort-2 --left-of DisplayPort-1 --auto
+
+#for mini 8.8" third monitor
+#exec --no-startup-id xrandr --output HDMI1 --rotate right --right-of eDP1 --auto
+
+#for laptop connected to tv
+#exec --no-startup-id bash ~/.config/hdmi
+
+set $firstMonitor eDP1
+set $secondMonitor HDMI1
+
+
+workspace 1 output $firstMonitor
+workspace 3 output $firstMonitor
+workspace 5 output $firstMonitor
+workspace 7 output $firstMonitor
+workspace 9 output $firstMonitor
+
+workspace 2 output $secondMonitor
+workspace 4 output $secondMonitor
+workspace 6 output $secondMonitor
+workspace 8 output $secondMonitor
+workspace 10 output $secondMonitor
+
+
+# ┌─┐┬ ┬┌┬┐┬┌─┐  ┌─┐┌─┐┌┬┐┌┬┐┬┌┐┌┌─┐┌─┐
+# ├─┤│ │ ││││ │  └─┐├┤  │  │ │││││ ┬└─┐
+# ┴ ┴└─┘─┴┘┴└─┘  └─┘└─┘ ┴  ┴ ┴┘└┘└─┘└─┘
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -D pulse sset Master '5%+'"
+bindsym XF86AudioLowerVolume exec --no-startup-id "amixer -D pulse sset Master '5%-'"
+bindsym XF86AudioMute exec --no-startup-id "amixer -D pulse set Master toggle"
+#https://github.com/acrisci/playerctl/
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+bindsym XF86AudioStop exec --no-startup-id playerctl stop
+#bindsym XF86AudioPlay exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+#bindsym XF86AudioNext exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+#bindsym XF86AudioPrev exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+#bindsym XF86AudioStop exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
+
+# xbacklight
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20 # decrease screen brightness
+
